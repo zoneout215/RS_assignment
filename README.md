@@ -1,3 +1,3 @@
-# RS_assinment
+# RS_assignment
 
 ##### For work with buddies
