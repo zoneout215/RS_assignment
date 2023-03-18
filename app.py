@@ -10,11 +10,11 @@ st.set_page_config(layout="wide")
 
 
 # the simpsons episodes
-df = pd.read_json('csvjson.json')
+df = pd.read_json('test_data.json')
 
 df_users = pd.read_json('users.json')
 
-with open('csvjson.json') as json_file:
+with open('test_data.json') as json_file:
   users_activities = json.load(json_file)
 #
 # # create a session state
