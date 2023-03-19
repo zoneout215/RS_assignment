@@ -8,7 +8,6 @@ from random import random
 
 st.set_page_config(layout="wide")
 
-
 # the simpsons episodes
 df = pd.read_json('test_data.json')
 
