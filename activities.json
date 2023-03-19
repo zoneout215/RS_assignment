@@ -1,56 +1,10 @@
-[
-    {
-        "content_id": "1",
-        "activity": "Like",
-        "user_id": 3,
-        "datetime": "2022-03-22 11:44:46.205824"
-    },
-    {
-        "content_id": "2",
-        "activity": "Select Season",
-        "user_id": 3,
-        "datetime": "2022-03-22 11:45:00.793869"
-    },
-    {
-        "content_id": "3",
-        "activity": "Select Episode",
-        "user_id": 3,
-        "datetime": "2022-03-22 11:45:07.836062"
-    },
-    {
-        "content_id": "4",
-        "activity": "Select Season",
-        "user_id": 0,
-        "datetime": "2022-03-22 14:11:10.348104"
-    },
-    {
-        "content_id": "5",
-        "activity": "Select Episode",
-        "user_id": 0,
-        "datetime": "2022-03-22 14:11:17.522302"
-    },
-    {
-        "content_id": "6",
-        "activity": "Like",
-        "user_id": 0,
-        "datetime": "2022-03-22 14:11:43.331065"
-    },
-    {
-        "content_id": "7",
-        "activity": "Select Season",
-        "user_id": 0,
-        "datetime": "2023-02-26 17:49:57.328912"
-    },
-    {
-        "content_id": "8",
-        "activity": "Select Season",
-        "user_id": 0,
-        "datetime": "2023-02-26 17:50:01.051431"
-    },
-    {
-        "content_id": "9",
-        "activity": "Select Season",
-        "user_id": 3,
-        "datetime": "2023-02-26 17:50:23.597763"
-    }
-]
+[{"content_id": 630, "activity": "Dislike", "user_id": 1, "datetime": "2023-03-18 22:21:26.386749"},
+  {"content_id": 933, "activity": "Dislike", "user_id": 5, "datetime": "2023-03-18 22:21:26.386797"},
+  {"content_id": 482, "activity": "Play", "user_id": 5, "datetime": "2023-03-18 22:21:26.386817"},
+  {"content_id": 115, "activity": "Dislike", "user_id": 2, "datetime": "2023-03-18 22:21:26.386835"},
+  {"content_id": 140, "activity": "Dislike", "user_id": 4, "datetime": "2023-03-18 22:21:26.386851"},
+  {"content_id": 846, "activity": "Select Season", "user_id": 4, "datetime": "2023-03-18 22:21:26.386869"},
+  {"content_id": 163, "activity": "Select Season", "user_id": 3, "datetime": "2023-03-18 22:21:26.386886"},
+  {"content_id": 155, "activity": "Play", "user_id": 3, "datetime": "2023-03-18 22:21:26.386902"},
+  {"content_id": 464, "activity": "Play", "user_id": 4, "datetime": "2023-03-18 22:21:26.386919"},
+  {"content_id": 409, "activity": "Dislike", "user_id": 5, "datetime": "2023-03-18 22:21:26.386937"}]
