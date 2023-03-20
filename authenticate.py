@@ -28,7 +28,7 @@ def authenticate():
         # display name on the sidebar
         with st.sidebar:
             st.text(name)
-
+            
         # set user id in session state
         user_id = int(df_users[df_users['name'] == name]['id'].iloc[0])
         st.session_state['user'] = user_id
