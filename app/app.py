@@ -9,11 +9,11 @@ from random import random
 st.set_page_config(layout="wide")
 
 # the simpsons episodes
-df = pd.read_json('../data/test_data.json')
+df = pd.read_json('data/test_data.json')
 
-df_users = pd.read_json('../data/users.json')
+df_users = pd.read_json('data/users.json')
 
-with open('../data/test_data.json') as json_file:
+with open('data/test_data.json') as json_file:
   users_activities = json.load(json_file)
 #
 # # create a session state
