@@ -1,1 +1,0 @@
-To run the scripts use app/<name of the scrtipt>.py from the project directory
