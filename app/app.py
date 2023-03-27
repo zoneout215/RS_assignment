@@ -97,7 +97,7 @@ with info:
 st.subheader('Dive into Australian content')
 #df = pd.read_json('test_data.json')
 #df.to_csv('test_data.csv', encoding='utf-8', index=False)
-df = pd.read_csv('data/test_data.csv')
+df = pd.read_json('data/test_data.json')
 #df = df.merge(df_books, on='ISBN')
 t.tiles(df)
 
