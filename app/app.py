@@ -81,14 +81,16 @@ if st.session_state['authentication_status']:
 
   with cover:
     # display the image
-    st.image(df['image'].iloc[0])
+    st.image(df['image'].iloc[0], width = 600,  use_column_width=False)
 
   with info:
+    col1, col2 = st.columns([2, 3])
     # display the movie information
-    st.title(df['title'].iloc[0])
-    st.caption(df['publication_date'].iloc[0])
-    st.markdown(df['description'].iloc[0])
-    # st.caption('Season ' + str(df_episode['season']) + ' | episode ' + str(df_episode['episode']) + ' | Rating ' + str(df_episode['rating']) + ' | ' + str(df_episode['votes']) + ' votes')
+    with col2:
+      st.title(df['title'].iloc[0])
+      # st.caption(df['publication_date'].iloc[0])
+      st.markdown(df['description'].iloc[0])
+      # st.caption('Season ' + str(df_episode['season']) + ' | episode ' + str(df_episode['episode']) + ' | Rating ' + str(df_episode['rating']) + ' | ' + str(df_episode['votes']) + ' votes')
 
 
   st.subheader('Dive into Australian content')

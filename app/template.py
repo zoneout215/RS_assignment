@@ -36,4 +36,4 @@ def tiles(df):
 
     # apply tile_item to each column-item tuple (created with python 'zip')
     any(tile_item(x[0], x[1]) for x in zip(columns, items))
-    
+  
