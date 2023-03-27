@@ -62,7 +62,7 @@ def add_bg_from_local(image_file):
     f"""
     <style>
     .stApp {{
-        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
         background-size: cover
     }}
     </style>
@@ -70,7 +70,7 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True
     )
 
-add_bg_from_local('kang.png')
+add_bg_from_local('backg.jpg')
 
 
 # based on the users ID that logs in we need to get recommendations
@@ -88,9 +88,9 @@ with cover:
 
 with info:
   # display the movie information
-  st.title(df['title'])
-  st.caption(df['publication_date'])
-  st.markdown(df['description'])
+  st.title(df['title'].iloc[0])
+  st.caption(df['publication_date'].iloc[0])
+  st.markdown(df['description'].iloc[0])
   # st.caption('Season ' + str(df_episode['season']) + ' | episode ' + str(df_episode['episode']) + ' | Rating ' + str(df_episode['rating']) + ' | ' + str(df_episode['votes']) + ' votes')
 
 
@@ -106,13 +106,16 @@ t.tiles(df)
 # based on user personas and collaborative filtering:
 # we are going to create two CB ribbons for movies and shows!
 
-#cb = pd.read_csv('jonas_sofo_data.csv')
+cb = pd.read_csv('jonas_sofo_data.csv')  #the output data from the collaborative filtering aglorithm
 # first get current user id from session state and combine it with
 # collaborative filtering data:
 #df_cb_user = df_cb[df_cb['user_id'] == st.session_state['user']]
-#cb_user_list_ids = cb.iloc[st.session_state['user']][:6]
-#st.subheader('Recommended for you')
-#t.tiles(cb_user_list_ids)
+cb_user_list_ids = cb.iloc[st.session_state['user']][:6]
+# test with movies dataframe:
+movies = pd.read_csv('full_movies.csv')
+selected_df = movies[movies['id'].isin(cb_user_list_ids)]
+st.subheader('Recommended movies for you')
+t.tiles(selected_df)
 
 
 
