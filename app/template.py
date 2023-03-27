@@ -6,8 +6,6 @@ import datetime
 def select_movie(id):
   st.session_state['id'] = id
 
-
-
 def tile_item(column, item):
   
   with column:
@@ -24,12 +22,6 @@ def tile_item(column, item):
     st.markdown(item['title'])
     
 
-
-    #st.caption(item['summary'][:50] + (item['summary'][50:] and '..'))
-    #st.caption('Season ' + str(item['season']) + ' | episode ' + str(item['episode']) + ' | Rating ' + str(item['rating']) + ' | ' + str(item['votes']) + ' votes')
-
-
-
 def tiles(df):
   # check the number of items
   nbr_items = df.shape[0]
@@ -44,3 +36,4 @@ def tiles(df):
 
     # apply tile_item to each column-item tuple (created with python 'zip')
     any(tile_item(x[0], x[1]) for x in zip(columns, items))
+    

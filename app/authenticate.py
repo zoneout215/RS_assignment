@@ -19,7 +19,7 @@ def authenticate():
                                         cookie_expiry_days=1)
 
     # 4. display the login form in the sidebar
-    name, authentication_status, username = authenticator.login('Login', 'sidebar')
+    name, authentication_status, username = authenticator.login('Login', 'main')
 
     # 5. the streamlit_authenticator library keeps state of the authentication status in streamlit's st.session_state['authentication_status']
 
@@ -36,11 +36,9 @@ def authenticate():
     # > if the authentication failed
     elif st.session_state['authentication_status'] == False:
         # write an error message on the sidebar
-        with st.sidebar:
-            st.error('Username/password is incorrect')
+        st.error('Username/password is incorrect')
 
     # > if there are no authentication attempts yet (e.g., first time visitors)
     elif st.session_state['authentication_status'] == None:
         # write an warning message on the sidebar
-        with st.sidebar:
-            st.warning('Please enter your username and password in the sidebar')
+        st.warning('Please enter your username and password in the sidebar')
