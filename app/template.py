@@ -9,11 +9,22 @@ def select_movie(id):
 
 
 def tile_item(column, item):
+  
   with column:
-    #st.button('📖', key=random(), on_click=select_movie, args=(item['id'],))
-    st.button('▶', key=random(), on_click=select_movie, args=(item['id'], ))
+    col1, col2, col3  = st.columns(3)
+    
+    with col1:
+      st.button('▶', key=random(), on_click=select_movie, args=(item['id']), use_container_width = True)
+    with col2:
+      st.button('👍', key=random(), use_container_width = True)  
+    with col3:
+      st.button('👎', key=random(), use_container_width = True)  
+    
     st.image(item['image'], use_column_width='always')
     st.markdown(item['title'])
+    
+
+
     #st.caption(item['summary'][:50] + (item['summary'][50:] and '..'))
     #st.caption('Season ' + str(item['season']) + ' | episode ' + str(item['episode']) + ' | Rating ' + str(item['rating']) + ' | ' + str(item['votes']) + ' votes')
 

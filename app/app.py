@@ -119,13 +119,10 @@ t.tiles(selected_df)
 
 
 
+
+
 #df_episode = df[df['id'] == st.session_state['episode']]
 #df_episode = df_episode.iloc[0]
-
-
-
-
-
 
 
 #
