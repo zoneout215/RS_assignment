@@ -5,3 +5,10 @@
 To run the scripts use app/[name of the scrtipt].py from the project directory
 
 @Kate you might need to install os package to run the notebooks from new directories
+
+
+Agenda for the interface:
+* info retrival with buttonds 
+* ??buttons for filters
+* scrollable 
+* more ribbons
