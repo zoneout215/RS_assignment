@@ -5,7 +5,7 @@ import pandas as pd
 
 def authenticate():
     # 0. Load users
-    df_users = pd.read_json('data/users.json')
+    df_users = pd.read_json('users.json')
 
     # 1. retrieve user credentials
     names = df_users['name'].tolist()
@@ -27,12 +27,12 @@ def authenticate():
     if st.session_state['authentication_status']:
         # display name on the sidebar
         with st.sidebar:
+            st.write("Welcome back!")
             st.text(name)
 
         # set user id in session state
         user_id = int(df_users[df_users['name'] == name]['id'].iloc[0])
         st.session_state['user'] = user_id
-
     # > if the authentication failed
     elif st.session_state['authentication_status'] == False:
         # write an error message on the sidebar
