@@ -112,7 +112,7 @@ cb = pd.read_csv('data/jonas_sofo_data.csv')  #the output data from the collabor
 #df_cb_user = df_cb[df_cb['user_id'] == st.session_state['user']]
 cb_user_list_ids = cb.iloc[st.session_state['user']][:6]
 # test with movies dataframe:
-movies = pd.read_csv('full_movies.csv')
+movies = pd.read_csv('data/full_movies.csv')
 selected_df = movies[movies['id'].isin(cb_user_list_ids)]
 st.subheader('Recommended movies for you')
 t.tiles(selected_df)
