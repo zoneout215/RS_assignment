@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 #replaced csvjson.json file name with test_data.json
 # the simpsons episodes
 
-logo = Image.open('abc_logo.png')
+logo = Image.open('data/abc_logo.png')
 logo_width = 150
 logo_height = 150
 logo_loc = st.empty()
@@ -24,11 +24,11 @@ logo_loc.image(logo, width=logo_width, use_column_width=False)
 st.write("Some content to the right of the logo...")
 
 
-df = pd.read_json('test_data.json')
+df = pd.read_json('data/test_data.json')
 
-df_users = pd.read_json('users.json')
+df_users = pd.read_json('data/users.json')
 
-with open('activities.json') as json_file:
+with open('data/activities.json') as json_file:
   users_activities = json.load(json_file)
 #
 # # create a session state
@@ -70,7 +70,7 @@ def add_bg_from_local(image_file):
     unsafe_allow_html=True
     )
 
-add_bg_from_local('backg.jpg')
+add_bg_from_local('data/backg.jpg')
 
 
 # based on the users ID that logs in we need to get recommendations
@@ -97,7 +97,7 @@ with info:
 st.subheader('Dive into Australian content')
 #df = pd.read_json('test_data.json')
 #df.to_csv('test_data.csv', encoding='utf-8', index=False)
-df = pd.read_csv('test_data.csv')
+df = pd.read_csv('data/test_data.csv')
 #df = df.merge(df_books, on='ISBN')
 t.tiles(df)
 
@@ -106,7 +106,7 @@ t.tiles(df)
 # based on user personas and collaborative filtering:
 # we are going to create two CB ribbons for movies and shows!
 
-cb = pd.read_csv('jonas_sofo_data.csv')  #the output data from the collaborative filtering aglorithm
+cb = pd.read_csv('data/jonas_sofo_data.csv')  #the output data from the collaborative filtering aglorithm
 # first get current user id from session state and combine it with
 # collaborative filtering data:
 #df_cb_user = df_cb[df_cb['user_id'] == st.session_state['user']]
