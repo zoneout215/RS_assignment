@@ -5,7 +5,7 @@ import pandas as pd
 
 def authenticate():
     # 0. Load users
-    df_users = pd.read_json('data/users.json')
+    df_users = pd.read_json('users.json')
 
     # 1. retrieve user credentials
     names = df_users['name'].tolist()
@@ -19,7 +19,7 @@ def authenticate():
                                         cookie_expiry_days=1)
 
     # 4. display the login form in the sidebar
-    name, authentication_status, username = authenticator.login('Login', 'sidebar')
+    name, authentication_status, username = authenticator.login('Login', 'main')
 
     # 5. the streamlit_authenticator library keeps state of the authentication status in streamlit's st.session_state['authentication_status']
 
@@ -27,20 +27,18 @@ def authenticate():
     if st.session_state['authentication_status']:
         # display name on the sidebar
         with st.sidebar:
+            st.write("Welcome back!")
             st.text(name)
 
         # set user id in session state
         user_id = int(df_users[df_users['name'] == name]['id'].iloc[0])
         st.session_state['user'] = user_id
-
     # > if the authentication failed
     elif st.session_state['authentication_status'] == False:
         # write an error message on the sidebar
-        with st.sidebar:
-            st.error('Username/password is incorrect')
+        st.error('Username/password is incorrect')
 
     # > if there are no authentication attempts yet (e.g., first time visitors)
     elif st.session_state['authentication_status'] == None:
         # write an warning message on the sidebar
-        with st.sidebar:
-            st.warning('Please enter your username and password in the sidebar')
+        st.warning('Please enter your username and password in the sidebar')
