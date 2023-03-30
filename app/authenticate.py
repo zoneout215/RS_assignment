@@ -46,4 +46,3 @@ def authenticate():
     elif st.session_state['authentication_status'] == None:
         # write an warning message on the sidebar
         st.warning('Please enter your username and password in the sidebar')
-        
