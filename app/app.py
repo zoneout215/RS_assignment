@@ -5,7 +5,6 @@ from numpy import random
 import json
 from numpy import random
 import template as t
-import pygame
 from PIL import Image
 import os
 
