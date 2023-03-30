@@ -9,12 +9,17 @@ import base64
 import template as t
 import pygame
 from PIL import Image
+import os
+
+current_dir = os.getcwd()  # gets current working directory
+project_dir = os.path.dirname(current_dir)  
+directory_path = os.path.dirname(current_dir) + os.sep + 'data' + os.sep
 
 st.set_page_config(layout="wide")
 #replaced csvjson.json file name with test_data.json
 # the simpsons episodes
 
-logo = Image.open('data/abc_logo.png')
+logo = Image.open(directory_path + 'abc_logo.png')
 logo_width = 150
 logo_height = 150
 logo_loc = st.empty()
@@ -23,11 +28,11 @@ logo_loc.image(logo, width=logo_width, use_column_width=False)
 st.write("Some content to the right of the logo...")
 
 
-df = pd.read_json('data/test_data.json')
+df = pd.read_json(directory_path + 'test_data.json')
 
-df_users = pd.read_json('data/users.json')
+df_users = pd.read_json(directory_path + 'users.json')
 
-with open('data/activities.json') as json_file:
+with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
 #
 # # create a session state

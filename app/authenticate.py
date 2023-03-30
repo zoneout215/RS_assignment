@@ -1,11 +1,15 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 import pandas as pd
+import os 
 
+current_dir = os.getcwd()  # gets current working directory
+project_dir = os.path.dirname(current_dir)  
+directory_path = os.path.dirname(current_dir) + os.sep + 'data' + os.sep
 
 def authenticate():
     # 0. Load users
-    df_users = pd.read_json('users.json')
+    df_users = pd.read_json(directory_path + 'users.json')
 
     # 1. retrieve user credentials
     names = df_users['name'].tolist()
@@ -42,3 +46,4 @@ def authenticate():
     elif st.session_state['authentication_status'] == None:
         # write an warning message on the sidebar
         st.warning('Please enter your username and password in the sidebar')
+        
