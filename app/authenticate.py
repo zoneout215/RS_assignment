@@ -2,10 +2,8 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import pandas as pd
 import os 
-
-current_dir = os.getcwd()  # gets current working directory
-project_dir = os.path.dirname(current_dir)  
-directory_path = os.path.dirname(current_dir) + os.sep + 'data' + os.sep
+ 
+directory_path = os.getcwd()  + os.sep + 'data' + os.sep
 
 def authenticate():
     # 0. Load users

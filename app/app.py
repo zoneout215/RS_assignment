@@ -1,23 +1,27 @@
 import streamlit as st
 import pandas as pd
 import authenticate as a
-import numpy as np
+from numpy import random
 import json
-from itertools import cycle
-from random import random
-import base64
+from numpy import random
 import template as t
 import pygame
 from PIL import Image
 import os
 
-current_dir = os.getcwd()  # gets current working directory
-project_dir = os.path.dirname(current_dir)  
-directory_path = os.path.dirname(current_dir) + os.sep + 'data' + os.sep
+# gets current working directory
+directory_path = os.getcwd()  + os.sep + 'data' + os.sep
+
+df = pd.read_json(directory_path + 'test_data.json')
+df_users = pd.read_json(directory_path + 'users.json')
+
+random_image_number =random.randint(0, len(df))
+
+#####################################################################
+####################### THE APP #####################################
+#####################################################################
 
 st.set_page_config(layout="wide")
-#replaced csvjson.json file name with test_data.json
-# the simpsons episodes
 
 logo = Image.open(directory_path + 'abc_logo.png')
 logo_width = 150
@@ -27,10 +31,6 @@ logo_loc.image(logo, width=logo_width, use_column_width=False)
 # maybe add some content to the right of the logo:
 st.write("Some content to the right of the logo...")
 
-
-df = pd.read_json(directory_path + 'test_data.json')
-
-df_users = pd.read_json(directory_path + 'users.json')
 
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
@@ -51,11 +51,8 @@ if 'activities' not in st.session_state:
 if 'id' not in st.session_state:   # to start with a content item as a "home screen"
   st.session_state['id'] = 741.0
 
-#df= df[df['id'] == st.session_state['id']]
-
 #authenticate
 a.authenticate()
-
 if st.session_state['authentication_status']:
 
   # def add_bg_from_local(image_file):
@@ -85,22 +82,22 @@ if st.session_state['authentication_status']:
 
   with cover:
     # display the image
-    st.image(df['image'].iloc[0], width = 600,  use_column_width=False)
+    st.image(df['image'].iloc[random_image_number], width = 600,  use_column_width=False)
 
   with info:
     col1, col2 = st.columns([2, 3])
     # display the movie information
     with col2:
-      st.title(df['title'].iloc[0])
+      st.title(df['title'].iloc[random_image_number])
       # st.caption(df['publication_date'].iloc[0])
-      st.markdown(df['description'].iloc[0])
+      st.markdown(df['description'].iloc[random_image_number])
       # st.caption('Season ' + str(df_episode['season']) + ' | episode ' + str(df_episode['episode']) + ' | Rating ' + str(df_episode['rating']) + ' | ' + str(df_episode['votes']) + ' votes')
 
 
   st.subheader('Dive into Australian content')
   #df = pd.read_json('test_data.json')
   #df.to_csv('test_data.csv', encoding='utf-8', index=False)
-  df = pd.read_json('data/test_data.json')
+  df = pd.read_json(directory_path + 'test_data.json')
   #df = df.merge(df_books, on='ISBN')
   t.tiles(df)
 
@@ -109,13 +106,13 @@ if st.session_state['authentication_status']:
   # based on user personas and collaborative filtering:
   # we are going to create two CB ribbons for movies and shows!
 
-  cb = pd.read_csv('data/jonas_sofo_data.csv')  #the output data from the collaborative filtering aglorithm
+  cb = pd.read_csv(directory_path + 'jonas_sofo_data.csv')  #the output data from the collaborative filtering aglorithm
   # first get current user id from session state and combine it with
   # collaborative filtering data:
   #df_cb_user = df_cb[df_cb['user_id'] == st.session_state['user']]
   cb_user_list_ids = cb.iloc[st.session_state['user']][:6]
   # test with movies dataframe:
-  movies = pd.read_pickle('data/full_movies.pkl')
+  movies = pd.read_pickle(directory_path + 'full_movies.pkl')
   selected_df = movies[movies['id'].isin(cb_user_list_ids)]
   st.subheader('Recommended movies for you')
   t.tiles(selected_df)
