@@ -69,7 +69,6 @@ if st.session_state['authentication_status']:
   df = pd.read_json(directory_path + 'test_data.json')
   t.tiles(df)
 
-
   # part to create personalized user content:
   # based on user personas and collaborative filtering:
   # we are going to create two CB ribbons for movies and shows!
