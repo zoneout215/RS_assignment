@@ -34,14 +34,7 @@ st.write("Some content to the right of the logo...")
 
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
-#
-# # create a session state
-# # if 'season' not in st.session_state:
-# #   st.session_state['season'] = 1
-# #
-# # if 'episode' not in st.session_state:
-# #   st.session_state['episode'] = 'tt0348034'
-#
+
 if 'user' not in st.session_state:
   st.session_state['user'] = 0
 
@@ -54,28 +47,6 @@ if 'id' not in st.session_state:   # to start with a content item as a "home scr
 #authenticate
 a.authenticate()
 if st.session_state['authentication_status']:
-
-  # def add_bg_from_local(image_file):
-  #     with open(image_file, "rb") as image_file:
-  #         encoded_string = base64.b64encode(image_file.read())
-  #     st.markdown(
-  #     f"""
-  #     <style>
-  #     .stApp {{
-  #         background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
-  #         background-size: cover
-  #     }}
-  #     </style>
-  #     """,
-  #     unsafe_allow_html=True
-  #     )
-
-  # add_bg_from_local('data/backg.jpg')
-
-
-  # based on the users ID that logs in we need to get recommendations
-  # first try with content based data from Kate:
-  # using template.py as in the labs
 
   # create a cover and info column to display the selected book
   cover, info = st.columns([2, 3])
@@ -95,10 +66,7 @@ if st.session_state['authentication_status']:
 
 
   st.subheader('Dive into Australian content')
-  #df = pd.read_json('test_data.json')
-  #df.to_csv('test_data.csv', encoding='utf-8', index=False)
   df = pd.read_json(directory_path + 'test_data.json')
-  #df = df.merge(df_books, on='ISBN')
   t.tiles(df)
 
 
@@ -107,6 +75,7 @@ if st.session_state['authentication_status']:
   # we are going to create two CB ribbons for movies and shows!
 
   cb = pd.read_csv(directory_path + 'jonas_sofo_data.csv')  #the output data from the collaborative filtering aglorithm
+
   # first get current user id from session state and combine it with
   # collaborative filtering data:
   #df_cb_user = df_cb[df_cb['user_id'] == st.session_state['user']]
