@@ -28,7 +28,7 @@ logo_height = 150
 logo_loc = st.empty()
 logo_loc.image(logo, width=logo_width, use_column_width=False)
 # maybe add some content to the right of the logo:
-st.write("Some content to the right of the logo...")
+st.write("Welcome to Australia! ")
 
 
 with open(directory_path + 'activities.json') as json_file:
@@ -67,6 +67,21 @@ if st.session_state['authentication_status']:
   st.subheader('Dive into Australian content')
   df = pd.read_json(directory_path + 'test_data.json')
   t.tiles(df)
+  # Top movies based on plays:
+  movies = pd.read_pickle(directory_path + 'full_movies.pkl')
+  Top_movies = pd.read_csv(directory_path + 'most_viewed_movies.csv')
+  top_movies_ids = Top_movies['content_id'].values.tolist()
+  df2 = movies[movies['id'].isin(top_movies_ids)]
+  st.subheader('Top movies')
+  t.tiles(df2)
+
+  # # Top shows based on plays:
+  shows = pd.read_pickle(directory_path + 'full_shows.pkl')
+  Top_shows = pd.read_csv(directory_path + 'most_viewed_shows.csv')
+  top_shows_ids = Top_shows['content_id'].values.tolist()
+  df3 = shows[shows['id'].isin(top_shows_ids)]
+  st.subheader('Top shows')
+  t.tiles(df3)
 
   # part to create personalized user content:
   # based on user personas and collaborative filtering:
