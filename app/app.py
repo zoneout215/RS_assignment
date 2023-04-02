@@ -11,7 +11,7 @@ import os
 # gets current working directory
 directory_path = os.getcwd()  + os.sep + 'data' + os.sep
 
-df = pd.read_json(directory_path + 'test_data.json')
+df = pd.read_csv(directory_path + 'data/RECOMMENDED_mix_austalia.csv')
 df_users = pd.read_json(directory_path + 'users.json')
 
 RECOMMEDED_top_movies = pd.read_csv(directory_path + 'RECOMMEDED_top_movies.csv')
@@ -34,14 +34,13 @@ logo_loc = st.empty()
 # logo_loc = st.empty()
 # logo_loc.image(logo, width=logo_width, use_column_width=False)
 
-with col3:
+# with col3:
     
-    logo_loc.image(logo, width=logo_width, use_column_width=False)
+#     logo_loc.image(logo, width=logo_width, use_column_width=False)
 
 
 
-# # maybe add some content to the right of the logo:
-# st.write("Welcome to Australia! ")
+ st.write("Welcome to Australia! ")
 
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
