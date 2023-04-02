@@ -14,15 +14,8 @@ directory_path = os.getcwd()  + os.sep + 'data' + os.sep
 df = pd.read_json(directory_path + 'test_data.json')
 df_users = pd.read_json(directory_path + 'users.json')
 
-movies = pd.read_pickle(directory_path + 'full_movies.pkl')
-Top_movies = pd.read_csv(directory_path + 'most_viewed_movies.csv')
-
-shows = pd.read_pickle(directory_path + 'full_shows.pkl')
-Top_shows = pd.read_csv(directory_path + 'most_viewed_shows.csv')
-
-collaborative_movies = pd.read_csv(directory_path + 'movie_recommendations.csv')  #the output data from the collaborative filtering aglorithm
-collaborative_shows = pd.read_csv(directory_path + 'show_recommendations.csv')  #the output data from the collaborative filtering aglorithm
-
+RECOMMEDED_top_movies = pd.read_csv(directory_path + 'RECOMMEDED_top_movies.csv')
+RECOMMEDED_top_shows = pd.read_csv(directory_path + 'RECOMMEDED_top_shows.csv')
 
 random_image_number =random.randint(0, len(df))
 
@@ -54,6 +47,8 @@ if 'id' not in st.session_state:   # to start with a content item as a "home scr
 
 #authenticate
 a.authenticate()
+name_of_user = df_users.name.iloc[st.session_state['user']-1]
+
 if st.session_state['authentication_status']:
 
   # create a cover and info column to display the selected book
@@ -61,7 +56,7 @@ if st.session_state['authentication_status']:
 
   with cover:
     # display the image
-    st.image(df['image'].iloc[random_image_number], width = 600,  use_column_width=False)
+    st.image(df['image'].iloc[random_image_number], width = 700,  use_column_width=False)
 
   with info:
     col1, col2 = st.columns([2, 3])
@@ -77,31 +72,22 @@ if st.session_state['authentication_status']:
   t.tiles(df)
 
   # Top movies based on plays:
-  top_movies_ids = Top_movies['content_id'].values.tolist()
-  df2 = movies[movies['id'].isin(top_movies_ids)]
   st.subheader('Most viewed movies')
-  t.tiles(df2)
+  t.tiles(RECOMMEDED_top_movies)
 
   # # Top shows based on plays:
-  top_shows_ids = Top_shows['content_id'].values.tolist()
-  df3 = shows[shows['id'].isin(top_shows_ids)]
   st.subheader('Most viewed shows')
-  t.tiles(df3)
+  t.tiles(RECOMMEDED_top_shows)
 
   # part to create personalized user content:
   # based on user personas and collaborative filtering:
   # we are going to create two CB ribbons for movies and shows!
 
   ## Colaborative filtering:
-  
-  # first get current user id from session state and combine it with
-  collaborative_movies_user_list_ids = collaborative_movies.iloc[st.session_state['user']][:6]
-  collaborative_shows_user_list_ids = collaborative_shows.iloc[st.session_state['user']][:6]
-  
-  selected_movies = movies[movies['id'].isin(collaborative_movies_user_list_ids)]
+  selected_movies = pd.read_csv(directory_path + f'RECOMMEDED_FOR_{name_of_user}_collaborative_movies.csv')
   st.subheader('Recommended movies for you')
   t.tiles(selected_movies)
 
-  selected_shows = shows[shows['id'].isin(collaborative_shows_user_list_ids)]
+  selected_shows = pd.read_csv(directory_path + f'RECOMMEDED_FOR_{name_of_user}_collaborative_shows.csv')
   st.subheader('Recommended shows for you')
   t.tiles(selected_shows)
