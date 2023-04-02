@@ -80,8 +80,7 @@ if st.session_state['authentication_status']:
 
   # Top movies based on plays:
   st.subheader('Most viewed movies')
-  st.subheader(name_of_user)
-  
+  # st.subheader(name_of_user)
   t.tiles(RECOMMEDED_top_movies)
 
   # # Top shows based on plays:

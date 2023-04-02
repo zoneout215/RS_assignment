@@ -41,7 +41,7 @@ def tile_item(column, item):
 def tiles(df):
   # check the number of items
   nbr_items = df.shape[0]
-  cols = 6
+  cols = 5
 
   if nbr_items != 0:
     # create columns with the corresponding number of items
