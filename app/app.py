@@ -79,7 +79,7 @@ if st.session_state['authentication_status']:
   t.tiles(minority)
 
   # Top movies based on plays:
-  # st.subheader('Most viewed movies')
+  st.subheader('Most viewed movies')
   st.subheader(name_of_user)
   
   t.tiles(RECOMMEDED_top_movies)
