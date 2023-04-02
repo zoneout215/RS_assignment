@@ -38,9 +38,8 @@ logo_height = 150
 logo_loc = st.empty()
 logo_loc.image(logo, width=logo_width, use_column_width=False)
 # maybe add some content to the right of the logo:
+
 st.write("Welcome to Australia! ")
-
-
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
 
@@ -106,4 +105,3 @@ if st.session_state['authentication_status']:
   selected_shows = shows[shows['id'].isin(collaborative_shows_user_list_ids)]
   st.subheader('Recommended shows for you')
   t.tiles(selected_shows)
-
