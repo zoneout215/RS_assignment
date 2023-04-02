@@ -40,7 +40,7 @@ if 'activities' not in st.session_state:
 if 'id' not in st.session_state:   # to start with a content item as a "home screen"
   st.session_state['id'] = 741.0
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([1, 3])
 with col1:
     logo = Image.open(directory_path + 'abc_logo.png')
     logo_width = 200
@@ -48,7 +48,9 @@ with col1:
     logo_loc = st.empty()
     logo_loc.image(logo, width=logo_width, use_column_width=False)
 with col2:
-    st.title("Welcome to Australia!")
+  new_title = '<p style="font-family:sans-serif; color:White; font-size: 80px;">Welcome to Australia!</p>'
+  st.markdown(new_title, unsafe_allow_html=True)
+  
 
 # authenticate
 a.authenticate()
@@ -60,11 +62,11 @@ if st.session_state['authentication_status']:
   # create a cover and info column to display the selected book
   name_of_user = df_users.name[df_users.id == st.session_state['user']].iloc[0]
   df = pd.read_csv(directory_path + f'RECOMMENDED_FOR_{name_of_user}_austalia.csv')
-  cover, info = st.columns([2, 3])
+  cover, info = st.columns([3, 1])
 
   with cover:
     # display the image
-    st.image(df['image'].iloc[random_image_number], width = 700,  use_column_width=False)
+    st.image(df['image'].iloc[random_image_number],  use_column_width=True)
 
   with info:
     col1, col2 = st.columns([2, 3])
