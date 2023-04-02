@@ -22,17 +22,27 @@ random_image_number =random.randint(0, len(df))
 #####################################################################
 ####################### THE APP #####################################
 #####################################################################
-
 st.set_page_config(layout="wide")
+#st.title("Welcome to Australia! ")
+# st.markdown("<h1 style='text-align: right; color: white;'>Welcome to Australia!</h1>", unsafe_allow_html=True)
 
 logo = Image.open(directory_path + 'abc_logo.png')
 logo_width = 150
 logo_height = 150
+col1, col2, col3,col4, col5 = st.columns(5)
 logo_loc = st.empty()
-logo_loc.image(logo, width=logo_width, use_column_width=False)
-# maybe add some content to the right of the logo:
+# logo_loc = st.empty()
+# logo_loc.image(logo, width=logo_width, use_column_width=False)
 
-st.write("Welcome to Australia! ")
+with col3:
+    
+    logo_loc.image(logo, width=logo_width, use_column_width=False)
+
+
+
+# # maybe add some content to the right of the logo:
+# st.write("Welcome to Australia! ")
+
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
 
@@ -51,6 +61,7 @@ name_of_user = df_users.name.iloc[st.session_state['user']-1]
 
 if st.session_state['authentication_status']:
 
+  
   # create a cover and info column to display the selected book
   cover, info = st.columns([2, 3])
 

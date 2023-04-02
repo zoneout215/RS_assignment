@@ -42,5 +42,6 @@ def authenticate():
 
     # > if there are no authentication attempts yet (e.g., first time visitors)
     elif st.session_state['authentication_status'] == None:
+        st.markdown("<h1 style='text-align: center; color: white;'>Welcome to Australia!</h1>", unsafe_allow_html=True)
         # write an warning message on the sidebar
         st.warning('Please enter your username and password in the sidebar')
