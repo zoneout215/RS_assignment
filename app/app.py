@@ -11,13 +11,13 @@ import os
 # gets current working directory
 directory_path = os.getcwd()  + os.sep + 'data' + os.sep
 
-df = pd.read_csv(directory_path + 'data/RECOMMENDED_mix_austalia.csv')
+
+minority = pd.read_csv(directory_path + 'RECOMMENDED_mix_div.csv')
 df_users = pd.read_json(directory_path + 'users.json')
 
 RECOMMEDED_top_movies = pd.read_csv(directory_path + 'RECOMMEDED_top_movies.csv')
 RECOMMEDED_top_shows = pd.read_csv(directory_path + 'RECOMMEDED_top_shows.csv')
 
-random_image_number =random.randint(0, len(df))
 
 #####################################################################
 ####################### THE APP #####################################
@@ -32,7 +32,7 @@ logo_loc = st.empty()
 logo_loc.image(logo, width=logo_width, use_column_width=False)
 # maybe add some content to the right of the logo:
 
-st.header("Welcome to Australia! ")
+st.header("Welcome to Australia!")
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
 
@@ -45,9 +45,13 @@ if 'activities' not in st.session_state:
 if 'id' not in st.session_state:   # to start with a content item as a "home screen"
   st.session_state['id'] = 741.0
 
-#authenticate
+# authenticate
 a.authenticate()
-name_of_user = df_users.name.iloc[st.session_state['user']-1]
+print(st.session_state['user'])
+name_of_user = df_users.name[df_users.id == st.session_state['user']].values[0]
+df = pd.read_csv(directory_path + f'RECOMMENDED_FOR_{name_of_user}_austalia.csv')
+random_image_number = random.randint(0, 5)
+
 
 if st.session_state['authentication_status']:
 
@@ -70,9 +74,14 @@ if st.session_state['authentication_status']:
 
   st.subheader('Dive into Australian content')
   t.tiles(df)
+  
+  st.subheader('Spotlighting diversity')
+  t.tiles(minority)
 
   # Top movies based on plays:
-  st.subheader('Most viewed movies')
+  # st.subheader('Most viewed movies')
+  st.subheader(name_of_user)
+  
   t.tiles(RECOMMEDED_top_movies)
 
   # # Top shows based on plays:

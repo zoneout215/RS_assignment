@@ -27,7 +27,7 @@ df3.to_csv(directory_path + 'RECOMMEDED_top_shows.csv', encoding='utf-8', index=
 
 ## Colaborative filtering:
 # first get current user id from session state and combine it with
-for i in df_users.id[:4]:
+for i in df_users.id:
 
     collaborative_movies_user_list_ids = collaborative_movies.iloc[i][:6]
     collaborative_shows_user_list_ids = collaborative_shows.iloc[i][:6]
