@@ -33,6 +33,6 @@ for i in df_users.id:
     collaborative_shows_user_list_ids = collaborative_shows.iloc[i][:6]
 
     selected_movies = movies[movies['id'].isin(collaborative_movies_user_list_ids)]
-    selected_movies.to_csv(directory_path + f'RECOMMEDED_FOR_{df_users.name.iloc[i-1]}_collaborative_movies.csv', encoding='utf-8', index=False)
+    selected_movies.to_csv(directory_path + f'RECOMMEDED_FOR_{df_users.name[df_users.id == i].values[0]}_collaborative_movies.csv', encoding='utf-8', index=False)
     selected_shows = shows[shows['id'].isin(collaborative_shows_user_list_ids)]
-    selected_shows.to_csv(directory_path + f'RECOMMEDED_FOR_{df_users.name.iloc[i-1]}_collaborative_shows.csv', encoding='utf-8', index=False)
+    selected_shows.to_csv(directory_path + f'RECOMMEDED_FOR_{df_users.name[df_users.id == i].values[0]}_collaborative_shows.csv', encoding='utf-8', index=False)
