@@ -17,6 +17,7 @@ df_users = pd.read_json(directory_path + 'users.json')
 
 RECOMMEDED_top_movies = pd.read_csv(directory_path + 'RECOMMEDED_top_movies.csv')
 RECOMMEDED_top_shows = pd.read_csv(directory_path + 'RECOMMEDED_top_shows.csv')
+diversity = pd.read_csv(directory_path + 'diversity_library.csv').sample(5)
 
 
 #####################################################################
@@ -24,15 +25,9 @@ RECOMMEDED_top_shows = pd.read_csv(directory_path + 'RECOMMEDED_top_shows.csv')
 #####################################################################
 
 st.set_page_config(layout="wide")
-
-logo = Image.open(directory_path + 'abc_logo.png')
-logo_width = 200
-logo_height = 200
-logo_loc = st.empty()
-logo_loc.image(logo, width=logo_width, use_column_width=False)
 # maybe add some content to the right of the logo:
 
-st.header("Welcome to Australia!")
+
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
 
@@ -45,16 +40,24 @@ if 'activities' not in st.session_state:
 if 'id' not in st.session_state:   # to start with a content item as a "home screen"
   st.session_state['id'] = 741.0
 
+col1, col2 = st.columns(2)
+with col1:
+    logo = Image.open(directory_path + 'abc_logo.png')
+    logo_width = 200
+    logo_height = 200
+    logo_loc = st.empty()
+    logo_loc.image(logo, width=logo_width, use_column_width=False)
+with col2:
+    st.title("Welcome to Australia!")
+
 # authenticate
 a.authenticate()
-print(st.session_state['user'])
-name_of_user = df_users.name[df_users.id == st.session_state['user']].values[0]
+name_of_user = df_users.name[df_users.id == st.session_state['user']].iloc[0]
 df = pd.read_csv(directory_path + f'RECOMMENDED_FOR_{name_of_user}_austalia.csv')
 random_image_number = random.randint(0, 5)
 
 
 if st.session_state['authentication_status']:
-
   # create a cover and info column to display the selected book
   cover, info = st.columns([2, 3])
 
@@ -76,7 +79,7 @@ if st.session_state['authentication_status']:
   t.tiles(df)
   
   st.subheader('Spotlighting diversity')
-  t.tiles(minority)
+  t.tiles(diversity)
 
   # Top movies based on plays:
   st.subheader('Most viewed movies')
