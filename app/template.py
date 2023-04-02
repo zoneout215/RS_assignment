@@ -9,8 +9,6 @@ directory_path = os.getcwd()  + os.sep + 'data' + os.sep
 def select_movie(id):
   st.session_state['id'] = id
 
-
-
 # save the activities as a file
 def save_activities():
   with open(directory_path + 'activities.json', 'w') as outfile:
@@ -54,4 +52,3 @@ def tiles(df):
 
     # apply tile_item to each column-item tuple (created with python 'zip')
     any(tile_item(x[0], x[1]) for x in zip(columns, items))
-
