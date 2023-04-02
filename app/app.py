@@ -26,13 +26,13 @@ random_image_number =random.randint(0, len(df))
 st.set_page_config(layout="wide")
 
 logo = Image.open(directory_path + 'abc_logo.png')
-logo_width = 150
-logo_height = 150
+logo_width = 200
+logo_height = 200
 logo_loc = st.empty()
 logo_loc.image(logo, width=logo_width, use_column_width=False)
 # maybe add some content to the right of the logo:
 
-st.write("Welcome to Australia! ")
+st.header("Welcome to Australia! ")
 with open(directory_path + 'activities.json') as json_file:
   users_activities = json.load(json_file)
 
