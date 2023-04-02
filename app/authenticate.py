@@ -28,9 +28,9 @@ def authenticate():
     # > if the authentication succeeded (i.e. st.session_state['authentication_status'] == True)
     if st.session_state['authentication_status']:
         # display name on the sidebar
-        with st.sidebar:
-            st.write("Welcome back!")
-            st.text(name)
+        # with st.sidebar:
+        #     st.write("Welcome back!")
+        #     st.text(name)
 
         # set user id in session state
         user_id = int(df_users[df_users['name'] == name]['id'].iloc[0])

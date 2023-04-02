@@ -9,8 +9,6 @@ directory_path = os.getcwd()  + os.sep + 'data' + os.sep
 def select_movie(id):
   st.session_state['id'] = id
 
-
-
 # save the activities as a file
 def save_activities():
   with open(directory_path + 'activities.json', 'w') as outfile:
