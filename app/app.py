@@ -52,13 +52,14 @@ with col2:
 
 # authenticate
 a.authenticate()
-name_of_user = df_users.name[df_users.id == st.session_state['user']].iloc[0]
-df = pd.read_csv(directory_path + f'RECOMMENDED_FOR_{name_of_user}_austalia.csv')
+
 random_image_number = random.randint(0, 5)
 
 
 if st.session_state['authentication_status']:
   # create a cover and info column to display the selected book
+  name_of_user = df_users.name[df_users.id == st.session_state['user']].iloc[0]
+  df = pd.read_csv(directory_path + f'RECOMMENDED_FOR_{name_of_user}_austalia.csv')
   cover, info = st.columns([2, 3])
 
   with cover:
