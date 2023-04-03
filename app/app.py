@@ -105,3 +105,5 @@ if st.session_state['authentication_status']:
   selected_shows = pd.read_csv(directory_path + f'RECOMMEDED_FOR_{name_of_user}_collaborative_shows.csv')
   st.subheader('Recommended shows for you')
   t.tiles(selected_shows)
+
+  

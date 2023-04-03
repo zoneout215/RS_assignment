@@ -30,7 +30,7 @@ def authenticate():
         # authenticator.logout("Logout", "sidebar")
 		# display name on the sidebar
 		with st.sidebar:
-			st.text(name)
+			st.text("Loged in as" + name)
 			#authenticator.logout("Logout", "sidebar")
 		# # set user id in session state
 		user_id = int(df_users[df_users['name'] == name]['id'].iloc[0])
