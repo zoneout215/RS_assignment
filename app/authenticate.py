@@ -30,19 +30,20 @@ def authenticate():
         # authenticator.logout("Logout", "sidebar")
 		# display name on the sidebar
 		with st.sidebar:
-			st.text(name)	
+			st.text(name)
+			#authenticator.logout("Logout", "sidebar")
 		# # set user id in session state
 		user_id = int(df_users[df_users['name'] == name]['id'].iloc[0])
 		st.session_state['user'] = user_id
 	# > if the authentication failed
 	elif st.session_state['authentication_status'] == False:
 		# write an error message on the sidebar
-		# with st.sidebar:
-		st.error('Username/password is incorrect')
+			with st.sidebar:
+				st.error('Username/password is incorrect')
 
 	# > if there are no authentication attempts yet (e.g., first time visitors)
 	elif st.session_state['authentication_status'] == None:
 		# write an warning message on the sidebar
-		# with st.sidebar:			
-		st.warning('Please enter your username and password in the sidebar')
+		with st.sidebar:			
+			st.warning('Please enter your username and password in the sidebar')
 	return 
