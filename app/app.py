@@ -55,7 +55,7 @@ with col2:
 # authenticate
 a.authenticate()
 
-random_image_number = random.randint(0, 5)
+random_image_number = random.randint(0, 4)
 
 
 if st.session_state['authentication_status']:
