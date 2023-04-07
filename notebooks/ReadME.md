@@ -6,4 +6,4 @@
 * **persona_activities.ipynb** is responsible creating artifitial user activity of three user clusters 
 * **simulate_activity.ipynb** is responsible for simulating random activity for the perpouses of most viewed recommedation
 * **most_viewed_ribbon.ipynb** creates the file of the most viewed items
-* * **diversity_ribbon.ipynb** creates the file for diversity recommendations based on the descripion data from items
+* **diversity_ribbon.ipynb** creates the file for diversity recommendations based on the descripion data from items
