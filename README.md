@@ -1,4 +1,4 @@
-# Recommender_Systems_assignment
+# Recommender Systems assignment
 
 ##### For work with buddies 
 
