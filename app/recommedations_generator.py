@@ -37,7 +37,4 @@ for i in df_users.id:
     selected_shows = shows[shows['id'].isin(collaborative_shows_user_list_ids)]
     selected_shows.to_csv(directory_path + f'RECOMMEDED_FOR_{df_users.name[df_users.id == i].values[0]}_collaborative_shows.csv', encoding='utf-8', index=False)
 
-# Delete null value as it is not needed:
-jack = pd.read_csv(directory_path + 'RECOMMENDED_FOR_Jack_austalia.csv')
-jack = jack.drop(3)
-jack.to_csv(directory_path + 'RECOMMENDED_FOR_Jack_austalia.csv', index = False)
+
