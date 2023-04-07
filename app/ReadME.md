@@ -7,7 +7,7 @@
 * **requirements.txt** contain the info about package versions for your needs and for deployment
 
 
-In order to run app.py with streamlit use this from the project directory(in case of Windows or custom separators use your separator istead)
+In order to run app.py with streamlit use this from the project directory (in case of Windows or custom separators use your separator istead)
 ```
 streamlit run app/app.py
 ```
