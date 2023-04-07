@@ -1,4 +1,4 @@
-# This is /notebooks folder and it's edicated to store notebooks which were used to create ribbons
+# This folder is responsible for storing notebooks which were used to create ribbons
 ## Content
 * **data/cleaning.ipynb** agreagates and cleans the data 
 * **collaborative_filter.ipynb** is responsible creating collaborative recommendations based on explicit activity
