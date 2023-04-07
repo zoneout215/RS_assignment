@@ -1,19 +1,9 @@
 # This is /notebooks folder and it's edicated to store notebooks which were used to create ribbons
 ## Content
-* **app.py** runs the app
-* **authenticate.py** is responsible for password checking and login in 
-* **recommendetions_generator.py** is responsible for creating files not iside the app to reduce loading time
-* **template.py** is responsible for tailing data into ribbons of recommedations
-* **requirements.txt** contain the info about package versions for your needs and for deployment
-
-
-In order to run app.py with streamlit use this from the project directory(in case of Windows or custom separators use your separator istead)
-```
-streamlit run app/app.py
-```
-In order to run other scripts use this from the project directory
-```
-python app/<name of the script>.py
-```
-
-and make sure you have the same package versions as in requirements.txt
+* **data/cleaning.ipynb** agreagates and cleans the data 
+* **collaborative_filter.ipynb** is responsible creating collaborative recommendations based on explicit activity
+* **content_based.ipynb** is responsible creating content recommendations based on explicit activity and the descripion data from items
+* **persona_activities.ipynb** is responsible creating artifitial user activity of three user clusters 
+* **simulate_activity.ipynb** is responsible for simulating random activity for the perpouses of most viewed recommedation
+* **most_viewed_ribbon.ipynb** creates the file of the most viewed items
+* * **diversity_ribbon.ipynb** creates the file for diversity recommendations based on the descripion data from items
