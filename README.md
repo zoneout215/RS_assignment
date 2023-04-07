@@ -1,11 +1,14 @@
 # Recommender Systems assignment
+This repository serves as a storage for an eduational project which was about creating a prototype of recommender system with value-oriented design
 
-##### For work with buddies 
+### Content
+* **app** stores scripts for app functional
+* **data** stores data
+* **notebooks** stores notebooks which produse files for recommedations
 
-To run the scripts use app/<name of the scrtipt>.py from the project directory
+In order to run app.py with streamlit use this from the project directory (in case of Windows or custom separators use your separator istead)
+```
+streamlit run app/app.py
+```
 
-Agenda for the interface:
-* info retrival with buttonds 
-* ??buttons for filters
-* scrollable 
-* more ribbons
+
