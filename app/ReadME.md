@@ -1,4 +1,4 @@
-# This is /app folder and it's dedicated to store scripts of the application
+# This folder is dedicated to store scripts of the application
 ## Content
 * **app.py** runs the app
 * **authenticate.py** is responsible for password checking and login in 
