@@ -1,4 +1,4 @@
-# Recommender Systems assignment
+# Recommender System of ABC streaming content
 📚 This repository serves as a storage for an eduational project which was about creating a prototype of recommender system with value-oriented design
 
 ### Content
