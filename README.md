@@ -3,7 +3,7 @@
 
 ### Content
 * 🛠️ **/app folder** stores scripts for app functional  
-* 💿 **/data folder** stores data  
+* 💿 **/data folder** stores data, which was scraped and provided with educational purpouses  
 * 📝 **/notebooks folder** stores notebooks which produse files for recommedations  
 
 In order to run the app either: 
