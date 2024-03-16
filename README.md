@@ -7,7 +7,7 @@
 * 📝 **/notebooks folder** stores notebooks which produse files for recommedations  
 
 In order to run the app either: 
-- use the deployed [version](https://share.streamlit.io/-/auth/app?redirect_uri=https%3A%2F%2Fzoneout215-rs-assignment-appapp-dr2x9o.streamlit.app%2F)
+- use the deployed [version](https://share.streamlit.io/-/auth/app?redirect_uri=https%3A%2F%2Fzoneout215-rs-assignment-appapp-dr2x9o.streamlit.app%2F) (might take a while to redeploy)
 - or use
 ```
 git clone https://github.com/zoneout215/RS_assignment/edit/main/README.md
